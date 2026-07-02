@@ -6,56 +6,62 @@
   <title>Nimbus Harness Lab</title>
   <meta name="description" content="Nimbus Harness Lab: AI agent harness, runtime evaluation, traces, and safety review." />
   <style>
-    :root { color-scheme: dark; --bg:#07111f; --panel:rgba(255,255,255,.075); --text:#edf7ff; --muted:#a8bed0; --accent:#77d7ff; --line:rgba(255,255,255,.15); }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:linear-gradient(145deg,#050914,var(--bg)); line-height:1.65; }
-    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-    .wrap { width:min(980px,calc(100% - 40px)); margin:0 auto; }
-    header { padding:56px 0 28px; }
-    h1 { font-size:clamp(2.2rem,7vw,4.6rem); line-height:1; letter-spacing:-.05em; margin:.5rem 0 1rem; }
-    .lead, li, p { color:var(--muted); }
-    .back { display:inline-block; margin-bottom:1rem; }
-    .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin:2rem 0 4rem; }
-    .card { border:1px solid var(--line); background:var(--panel); border-radius:22px; padding:1.2rem; }
-    .card h2 { margin-top:0; }
-    code { color:#a7f3d0; }
-    @media (max-width:760px){ .grid{grid-template-columns:1fr;} }
+    :root { color-scheme: dark; --bg:#08090a; --panel:rgba(255,255,255,.035); --text:#f7f8f8; --muted:#8a8f98; --soft:#d0d6e0; --accent:#7170ff; --cyan:#77d7ff; --ok:#10b981; --warn:#f59e0b; --line:rgba(255,255,255,.08); }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-feature-settings:"cv01","ss03"; color:var(--text); background:radial-gradient(circle at 80% 8%,rgba(113,112,255,.22),transparent 24rem),radial-gradient(circle at 15% 28%,rgba(119,215,255,.14),transparent 22rem),var(--bg); line-height:1.55; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.32; background-image:linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(circle at 50% 20%,black,transparent 72%); }
+    a { color:inherit; text-decoration:none; } a:hover { color:white; }
+    .wrap { width:min(1120px,calc(100% - 42px)); margin:0 auto; position:relative; }
+    nav { height:64px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.05); backdrop-filter:blur(18px); position:sticky; top:0; background:rgba(8,9,10,.62); z-index:5; }
+    .brand { display:flex; align-items:center; gap:.7rem; color:var(--soft); font-weight:510; }
+    .chip { display:inline-flex; align-items:center; gap:.45rem; border:1px solid var(--line); background:rgba(255,255,255,.025); color:var(--soft); border-radius:999px; padding:.36rem .64rem; font-size:.8rem; }
+    .hero { padding:70px 0 42px; display:grid; grid-template-columns:.9fr 1.1fr; gap:34px; align-items:center; }
+    h1 { margin:.9rem 0 1rem; font-size:clamp(2.8rem,7vw,6rem); line-height:.9; letter-spacing:-.07em; font-weight:510; }
+    .lead { color:var(--muted); font-size:1.12rem; max-width:620px; }
+    .btn { display:inline-flex; margin-top:1.4rem; border:1px solid var(--line); background:#5e6ad2; color:white; border-radius:9px; padding:.8rem 1rem; font-weight:510; box-shadow:0 14px 46px rgba(94,106,210,.28); }
+    .panel { border:1px solid var(--line); border-radius:26px; background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018)); box-shadow:0 28px 100px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05); overflow:hidden; }
+    .window-top { display:flex; justify-content:space-between; align-items:center; padding:.8rem 1rem; border-bottom:1px solid rgba(255,255,255,.06); color:var(--muted); font-size:.78rem; }
+    .lights { display:flex; gap:.42rem; } .lights i { width:9px;height:9px;border-radius:50%;background:#34343a; } .lights i:nth-child(1){background:#ef4444}.lights i:nth-child(2){background:#f59e0b}.lights i:nth-child(3){background:#10b981}
+    .board { padding:1rem; display:grid; gap:.85rem; }
+    .row { display:grid; grid-template-columns:90px 1fr 82px; gap:.9rem; align-items:center; padding:.8rem; border:1px solid rgba(255,255,255,.06); border-radius:14px; background:rgba(255,255,255,.025); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; color:#b8c2cc; font-size:.78rem; }
+    .row b { color:var(--text); font-weight:500; } .ok { color:#a7f3d0; } .warn { color:#fde68a; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; padding:34px 0 70px; }
+    .card { min-height:220px; border:1px solid var(--line); border-radius:22px; background:rgba(255,255,255,.03); padding:1.1rem; position:relative; overflow:hidden; }
+    .card::after { content:""; position:absolute; inset:auto -30% -55% -30%; height:140px; background:radial-gradient(circle,rgba(113,112,255,.18),transparent 66%); }
+    .card h2 { margin:.4rem 0; letter-spacing:-.03em; } .card p, .card li { color:var(--muted); }
+    .num { color:var(--cyan); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8rem; }
+    .safety { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .meter { height:10px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; margin-top:1rem; }
+    .meter i { display:block; height:100%; width:86%; background:linear-gradient(90deg,var(--ok),var(--cyan),var(--accent)); border-radius:inherit; }
+    @media (max-width:880px){ .hero,.grid,.safety{grid-template-columns:1fr;} .row{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <a class="back" href="/">← Back to Nimbus home</a>
-    <h1>Nimbus Harness Lab</h1>
-    <p class="lead">A public notebook for agent harness design, runtime evaluation, observability, and safety review.</p>
+  <nav><div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:min(1120px,calc(100% - 42px));"><a class="brand" href="/">← Nimbus home</a><span class="chip">static mock · no live backend</span></div></nav>
+  <header class="wrap hero">
+    <section>
+      <span class="chip">agent harness observatory</span>
+      <h1>Trace the process,<br>not just the answer.</h1>
+      <p class="lead">Harness evaluation should expose how an agent used tools, retried, failed, recovered, and stayed inside its safety boundary.</p>
+      <a class="btn" href="https://github.com/nimbusisland/nimbus-harness-lab">View repo artifacts →</a>
+    </section>
+    <section class="panel" aria-label="trace preview">
+      <div class="window-top"><div class="lights"><i></i><i></i><i></i></div><span>eval-run / mock trace</span></div>
+      <div class="board">
+        <div class="row"><b>STEP 01</b><span>Plan task scope and required tools</span><span class="ok">safe</span></div>
+        <div class="row"><b>STEP 02</b><span>Read eval case and sample trace schema</span><span class="ok">seen</span></div>
+        <div class="row"><b>STEP 03</b><span>Execute allowed tool sequence with logging</span><span class="warn">audit</span></div>
+        <div class="row"><b>STEP 04</b><span>Classify failure: reasoning / tool / observation / runtime / boundary</span><span class="ok">labeled</span></div>
+      </div>
+    </section>
   </header>
-  <main class="wrap">
-    <section class="grid">
-      <article class="card">
-        <h2>Evaluation frame</h2>
-        <ul>
-          <li>Hold the model constant when comparing harnesses.</li>
-          <li>Separate outcome metrics from process metrics.</li>
-          <li>Inspect tool-call traces, retries, unsafe attempts, and latency.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Trace artifacts</h2>
-        <p>Start with the repo examples:</p>
-        <ul>
-          <li><a href="../examples/sample-trace.json"><code>examples/sample-trace.json</code></a></li>
-          <li><a href="../examples/eval-case-schema.yaml"><code>examples/eval-case-schema.yaml</code></a></li>
-          <li><a href="../docs/trace-schema.md"><code>docs/trace-schema.md</code></a></li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Safety checklist</h2>
-        <p>Public artifacts must not contain secrets, private documents, raw chat transcripts, account credentials, or live API tokens.</p>
-        <p><a href="../checklists/safety-review.md">Read safety review checklist</a></p>
-      </article>
-      <article class="card">
-        <h2>Telecom crossover</h2>
-        <p>Future work: agent harnesses for network troubleshooting, LEO/NTN observability, handover investigation, and repeatable operations traces.</p>
-      </article>
+  <main class="wrap grid">
+    <article class="card"><span class="num">01</span><h2>Outcome metrics</h2><p>任務是否完成、測試是否通過、答案是否正確、成本與 latency。</p></article>
+    <article class="card"><span class="num">02</span><h2>Process metrics</h2><p>工具呼叫次數、無效呼叫、重試、unsafe attempt、trace completeness。</p></article>
+    <article class="card"><span class="num">03</span><h2>Boundary metrics</h2><p>agent 能讀什麼、寫什麼、連去哪裡，以及是否碰到不該碰的資料。</p></article>
+    <section class="safety">
+      <article class="card"><span class="num">SAFETY</span><h2>Public page rule</h2><p>這個網站目前只放靜態展示與 mock data，不接真實 agent backend，不要求密碼、付款或 API key。</p><div class="meter"><i></i></div></article>
+      <article class="card"><span class="num">NEXT</span><h2>Possible upgrades</h2><ul><li>互動式 trace viewer</li><li>LEO/NTN scenario gallery</li><li>Agent failure taxonomy cards</li><li>教學動畫或圖解</li></ul></article>
     </section>
   </main>
 </body>
