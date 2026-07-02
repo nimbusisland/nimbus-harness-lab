@@ -1,0 +1,11 @@
+{
+  "run_id": "example",
+  "termination_reason": "success",
+  "planner_attempts": [
+    {"attempt": 1, "parse_ok": true, "validation_errors": []}
+  ],
+  "workflow": [
+    {"index": 0, "skill": "search", "permission_tier": "read"},
+    {"index": 1, "skill": "list_items", "permission_tier": "read"}
+  ]
+}

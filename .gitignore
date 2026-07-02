@@ -1,0 +1,43 @@
+# Secrets and local config
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_ed25519
+id_rsa
+credentials*
+secrets*
+*.token
+*.cookie
+
+# Private/user data
+private/
+uploads/
+storage_data/
+*.db
+*.sqlite
+*.sqlite3
+*.pdf
+*.docx
+*.pptx
+*.xlsx
+
+# Python / Node / caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+dist/
+build/
+.cache/
+.pytest_cache/
+.coverage
+coverage/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
