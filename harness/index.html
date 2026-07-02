@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nimbus Harness Lab</title>
   <meta name="description" content="Nimbus Harness Lab: AI agent harness, runtime evaluation, traces, and safety review." />
+  <meta name="theme-color" content="#08090a" />
+  <meta property="og:title" content="Nimbus Harness Lab — trace the process, not just the answer" />
+  <meta property="og:description" content="Static public dashboard for agent harness evaluation, process metrics, failure taxonomy, and safety boundaries." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nimbus.mit-project.me/harness/" />
   <style>
     :root { color-scheme: dark; --bg:#08090a; --panel:rgba(255,255,255,.035); --text:#f7f8f8; --muted:#8a8f98; --soft:#d0d6e0; --accent:#7170ff; --cyan:#77d7ff; --ok:#10b981; --warn:#f59e0b; --line:rgba(255,255,255,.08); }
     * { box-sizing:border-box; }
@@ -33,7 +38,15 @@
     .safety { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     .meter { height:10px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; margin-top:1rem; }
     .meter i { display:block; height:100%; width:86%; background:linear-gradient(90deg,var(--ok),var(--cyan),var(--accent)); border-radius:inherit; }
-    @media (max-width:880px){ .hero,.grid,.safety{grid-template-columns:1fr;} .row{grid-template-columns:1fr;} }
+    .resource { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .resource a { border:1px solid var(--line); border-radius:18px; padding:1rem; background:rgba(255,255,255,.024); color:var(--soft); }
+    .resource a small { display:block; color:var(--muted); margin-top:.35rem; }
+    .score { display:grid; grid-template-columns:repeat(4,1fr); gap:.75rem; margin-top:1rem; }
+    .score div { border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:.8rem; background:rgba(255,255,255,.022); }
+    .score b { display:block; font-size:1.4rem; letter-spacing:-.04em; }
+    .score span { color:var(--muted); font-size:.78rem; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+    @media (max-width:880px){ .hero,.grid,.safety,.resource{grid-template-columns:1fr;} .row,.score{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -43,6 +56,12 @@
       <span class="chip">agent harness observatory</span>
       <h1>Trace the process,<br>not just the answer.</h1>
       <p class="lead">Harness evaluation should expose how an agent used tools, retried, failed, recovered, and stayed inside its safety boundary.</p>
+      <div class="score" aria-label="evaluation score dimensions">
+        <div><b>4</b><span>metric families</span></div>
+        <div><b>0</b><span>private traces</span></div>
+        <div><b>1</b><span>public schema path</span></div>
+        <div><b>∞</b><span>replay-first mindset</span></div>
+      </div>
       <a class="btn" href="https://github.com/nimbusisland/nimbus-harness-lab">View repo artifacts →</a>
     </section>
     <section class="panel" aria-label="trace preview">
@@ -62,6 +81,11 @@
     <section class="safety">
       <article class="card"><span class="num">SAFETY</span><h2>Public page rule</h2><p>這個網站目前只放靜態展示與 mock data，不接真實 agent backend，不要求密碼、付款或 API key。</p><div class="meter"><i></i></div></article>
       <article class="card"><span class="num">NEXT</span><h2>Possible upgrades</h2><ul><li>互動式 trace viewer</li><li>LEO/NTN scenario gallery</li><li>Agent failure taxonomy cards</li><li>教學動畫或圖解</li></ul></article>
+    </section>
+    <section class="resource" aria-label="harness reference links">
+      <a href="https://github.com/nimbusisland/nimbus-harness-lab/blob/main/docs/trace-schema.md">Trace schema<small>欄位、事件類型與可重放紀錄格式。</small></a>
+      <a href="https://github.com/nimbusisland/nimbus-harness-lab/blob/main/docs/harness-taxonomy.md">Failure taxonomy<small>把錯誤分成 reasoning / tool / observation / runtime / boundary。</small></a>
+      <a href="https://github.com/nimbusisland/nimbus-harness-lab/blob/main/checklists/publishing-preflight.md">Publishing preflight<small>公開前確認沒有 secrets、私密路徑或錯誤承諾。</small></a>
     </section>
   </main>
 </body>
