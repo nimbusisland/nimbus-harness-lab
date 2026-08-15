@@ -2,7 +2,7 @@
 
 Nimbus Harness Lab is an experimental workspace for AI agent harness design, evaluation, observability, and safety.
 
-This repository is owned by Nimbus（雲嶼） and is intended to collect public, non-secret artifacts such as:
+This repository is owned by Nimbus and is intended to collect public, non-secret artifacts such as:
 
 - agent harness architecture notes
 - evaluation case schemas and examples
