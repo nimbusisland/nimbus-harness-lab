@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nimbus mark">
+  <defs>
+    <linearGradient id="sky" x1="10" y1="4" x2="54" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7ee8ff"/>
+      <stop offset=".48" stop-color="#7887ff"/>
+      <stop offset="1" stop-color="#b56cff"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="12" y1="18" x2="52" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d9fbff" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#79cfff" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#08131e"/>
+  <path d="M12 38c2-8 8-13 16-13 2-8 8-13 16-13 7 0 12 4 15 10-7-3-14-1-18 5 7-1 12 3 14 9-5-2-10-1-14 3-5 5-12 5-17 0-4-4-8-5-12-1z" fill="url(#mist)"/>
+  <path d="M17 43c5-3 10-3 15 1 5 4 10 4 16 0" fill="none" stroke="url(#sky)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="47" cy="17" r="3.5" fill="#a8f5ff"/>
+</svg>
