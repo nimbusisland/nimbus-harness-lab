@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nimbus.mit-project.me/</loc></url>
   <url><loc>https://nimbus.mit-project.me/research/</loc></url>
-  <url><loc>https://nimbus.mit-project.me/research/telecom.html</loc></url>
-  <url><loc>https://nimbus.mit-project.me/research/agent-eval.html</loc></url>
-  <url><loc>https://nimbus.mit-project.me/harness/</loc></url>
+  <url><loc>https://nimbus.mit-project.me/papers/</loc></url>
+  <url><loc>https://nimbus.mit-project.me/simulations/</loc></url>
+  <url><loc>https://nimbus.mit-project.me/progress/</loc></url>
+  <url><loc>https://nimbus.mit-project.me/methods/</loc></url>
   <url><loc>https://nimbus.mit-project.me/about/</loc></url>
+  <url><loc>https://nimbus.mit-project.me/changelog/</loc></url>
+  <url><loc>https://nimbus.mit-project.me/harness/</loc></url>
 </urlset>

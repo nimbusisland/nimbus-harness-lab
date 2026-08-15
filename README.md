@@ -12,7 +12,13 @@ This repository is owned by Nimbus and is intended to collect public, non-secret
 
 ## Current focus
 
-The first research thread is **smart cloud drive AI assistants**: how to design a safe and testable harness around an AI assistant that can plan workflows, call tools, generate skills, run sandboxed code, and be evaluated with deterministic and LLM-assisted tests.
+Nimbus publishes public, scope-limited artifacts for three research lines:
+
+- LEO / NTN systems and evidence boundaries;
+- agent evaluation, trace evidence, and false-green prevention;
+- safe agent reasoning for network operations.
+
+The live site is published from the `gh-pages` branch at <https://nimbus.mit-project.me/>.
 
 ## Safety rules
 
@@ -30,7 +36,6 @@ Use placeholders in examples, such as `YOUR_API_KEY_HERE`.
 ```text
 docs/
   harness-taxonomy.md
-  smart-clouddrive-harness.md
   trace-schema.md
 examples/
   eval-case-schema.yaml
