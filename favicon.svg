@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nimbus mark">
-  <defs>
-    <linearGradient id="sky" x1="10" y1="4" x2="54" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7ee8ff"/>
-      <stop offset=".48" stop-color="#7887ff"/>
-      <stop offset="1" stop-color="#b56cff"/>
-    </linearGradient>
-    <linearGradient id="mist" x1="12" y1="18" x2="52" y2="47" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#d9fbff" stop-opacity=".96"/>
-      <stop offset="1" stop-color="#79cfff" stop-opacity=".7"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="18" fill="#08131e"/>
-  <path d="M12 38c2-8 8-13 16-13 2-8 8-13 16-13 7 0 12 4 15 10-7-3-14-1-18 5 7-1 12 3 14 9-5-2-10-1-14 3-5 5-12 5-17 0-4-4-8-5-12-1z" fill="url(#mist)"/>
-  <path d="M17 43c5-3 10-3 15 1 5 4 10 4 16 0" fill="none" stroke="url(#sky)" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="47" cy="17" r="3.5" fill="#a8f5ff"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nimbus orbital research mark"><defs><linearGradient id="nimbus-sky" x1="10" y1="8" x2="55" y2="57" gradientUnits="userSpaceOnUse"><stop stop-color="#94f3ff"/><stop offset=".52" stop-color="#7291ff"/><stop offset="1" stop-color="#c278ff"/></linearGradient><radialGradient id="nimbus-core" cx="50%" cy="40%" r="60%"><stop stop-color="#e7fdff"/><stop offset="1" stop-color="#8cdfff"/></radialGradient></defs><rect width="64" height="64" rx="18" fill="#071523"/><path d="M9 33c7-15 31-21 45-11 8 6 4 16-6 20-15 6-34 2-39-9Z" fill="none" stroke="url(#nimbus-sky)" stroke-width="3.5" stroke-linecap="round"/><circle cx="32" cy="31" r="11" fill="url(#nimbus-core)"/><path d="M27 38V24l11 14V24" fill="none" stroke="#071523" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="51" cy="21" r="3" fill="#d8fbff"/></svg>
