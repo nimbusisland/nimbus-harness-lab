@@ -4,122 +4,139 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Evidence-bound public research on LEO/NTN systems, agent evaluation, and safe network operations.">
-  <meta name="theme-color" content="#f2efe7">
-  <title>Nimbus · Public research</title>
+  <meta name="theme-color" content="#050711">
+  <title>Nimbus · Evidence Observatory</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/observatory.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Nimbus · Public research">
-  <meta property="og:description" content="From research question to inspectable evidence—with the boundary kept visible.">
+  <meta property="og:title" content="Nimbus · Evidence Observatory">
+  <meta property="og:description" content="Trace a research claim from question to source, local check, and explicit boundary.">
   <meta property="og:url" content="https://nimbus.mit-project.me/">
   <meta property="og:image" content="https://nimbus.mit-project.me/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
 </head>
-<body>
+<body class="home-v3">
   <a class="skip" href="#content">Skip to content</a>
   <nav class="nav" aria-label="Primary navigation">
     <div class="wrap nav-row">
       <a class="brand" href="/">Nimbus</a>
       <div class="nav-links">
-        <a href="/research/">Research</a>
-        <a href="/papers/">Papers</a>
-        <a href="/simulations/">Simulations</a>
-        <a href="/progress/">Progress</a>
-        <a href="/methods/">Methods</a>
-        <a href="/about/">About</a>
+        <a href="/research/">Research</a><a href="/papers/">Papers</a><a href="/simulations/">Simulations</a><a href="/progress/">Progress</a><a href="/methods/">Methods</a><a href="/about/">About</a>
       </div>
     </div>
   </nav>
 
   <main id="content">
-    <header class="wrap home-hero">
-      <div class="hero-copy">
-        <div class="kicker">Public research · evidence first</div>
-        <h1>Follow the<br><em>signal.</em></h1>
-        <p class="lead">Nimbus studies LEO/NTN systems and agent evaluation. Every public result follows one visible path: question, source, local check, and an explicit boundary on what the evidence does not establish.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#evidence-path">Trace the method</a>
-          <a class="btn" href="/progress/">Current progress</a>
+    <section class="observatory-hero">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div class="wrap hero-console">
+        <div class="hero-message">
+          <div class="tech-label">Evidence observatory · Public field log</div>
+          <h1>Evidence has <span>a trajectory.</span></h1>
+          <p class="hero-deck">Nimbus follows research claims through their full path—question, source, local check, and boundary—before they are allowed to look like conclusions.</p>
+        </div>
+
+        <div class="orbit-instrument" aria-label="An orbital evidence instrument tracing four validation states">
+          <svg viewBox="0 0 520 520" role="img" aria-labelledby="instrument-title instrument-desc">
+            <title id="instrument-title">Evidence trajectory instrument</title>
+            <desc id="instrument-desc">A signal travels around an orbital field through question, source, check and boundary states.</desc>
+            <defs><radialGradient id="planetFill" cx="35%" cy="28%"><stop offset="0" stop-color="#8895b3" stop-opacity=".7"/><stop offset=".42" stop-color="#31394f" stop-opacity=".8"/><stop offset="1" stop-color="#0b0f1d"/></radialGradient></defs>
+            <line class="instrument-cross" x1="260" y1="24" x2="260" y2="496"/><line class="instrument-cross" x1="24" y1="260" x2="496" y2="260"/>
+            <circle class="planet-disc" cx="260" cy="260" r="130"/>
+            <ellipse class="orbit-ring" cx="260" cy="260" rx="224" ry="138" transform="rotate(-28 260 260)"/>
+            <ellipse class="orbit-ring dashed" cx="260" cy="260" rx="208" ry="204"/>
+            <path class="orbit-signal" pathLength="1" d="M54 355C14 245 129 82 297 53C437 29 515 135 470 278C432 400 292 492 155 439C99 417 67 386 54 355Z"/>
+            <circle class="instrument-node" cx="59" cy="329" r="6"/><circle class="instrument-node" cx="199" cy="77" r="6"/><circle class="instrument-node" cx="464" cy="178" r="6"/><circle class="instrument-node" cx="368" cy="448" r="6"/>
+            <circle class="instrument-pulse" cx="59" cy="329" r="4"/>
+            <text class="instrument-code" x="31" y="310">Q/01</text><text class="instrument-code" x="178" y="55">SRC/02</text><text class="instrument-code" x="444" y="158">CHK/03</text><text class="instrument-code" x="345" y="478">BND/04</text>
+          </svg>
+          <div class="instrument-readout"><strong>Trace acquired</strong>Route contract visible · deployment authority withheld</div>
+        </div>
+
+        <div class="hero-index" aria-label="Public research scope">
+          <span><b>Field 01</b>LEO / NTN</span><span><b>Field 02</b>Agent evaluation</span><span><b>Field 03</b>Agent × network</span><span><b>Policy</b>Evidence before claim</span>
         </div>
       </div>
-
-      <div class="orbit-stage" aria-label="A signal traces an orbit from question to evidence">
-        <svg class="orbit-art" viewBox="0 0 520 540" role="img" aria-labelledby="orbit-title orbit-desc">
-          <title id="orbit-title">Evidence orbit</title>
-          <desc id="orbit-desc">A coral signal line connects question, source, check and boundary around a planet.</desc>
-          <path class="orbit-ghost" d="M38 310C90 100 387 32 487 222C559 360 389 526 178 470C61 439 5 377 38 310Z"/>
-          <path class="orbit-path" pathLength="1" d="M18 356C70 93 395 17 502 212C582 358 395 545 162 474C28 433-18 334 18 356Z"/>
-          <circle class="orbit-node" cx="50" cy="260" r="7"/>
-          <circle class="orbit-node" cx="183" cy="77" r="7"/>
-          <circle class="orbit-node" cx="467" cy="174" r="7"/>
-          <circle class="orbit-node" cx="379" cy="469" r="7"/>
-          <text class="orbit-label" x="15" y="241">Question</text>
-          <text class="orbit-label" x="151" y="55">Source</text>
-          <text class="orbit-label" x="434" y="151">Check</text>
-          <text class="orbit-label" x="346" y="499">Boundary</text>
-        </svg>
-        <span class="signal-dot" style="left:8%;top:46%" aria-hidden="true"></span>
-        <div class="signal-caption"><strong>One path, four states.</strong>Polish never outruns provenance.</div>
-      </div>
-    </header>
-
-    <section class="evidence-strip" aria-label="Current public research scope">
-      <div class="evidence-stat"><strong>3</strong><span>research lanes, separately scoped</span></div>
-      <div class="evidence-stat"><strong>100</strong><span>local route contracts checked—not a model benchmark</span></div>
-      <div class="evidence-stat"><strong>0</strong><span>deployment claims inferred from synthetic fixtures</span></div>
     </section>
 
-    <section id="evidence-path" class="wrap story">
-      <header class="story-head reveal">
-        <div class="kicker">The evidence path</div>
-        <h2>A result is only as strong as the path beneath it.</h2>
-        <p class="lead">The same signal continues through four chapters. Each chapter adds evidence without silently changing its meaning.</p>
-      </header>
+    <div class="signal-marquee" aria-label="Evidence principles">
+      <div class="signal-track">
+        <span>Source ≠ reproduction</span><span>Fixture ≠ benchmark</span><span>Local pass ≠ deployment</span><span>Trace before answer</span>
+        <span aria-hidden="true">Source ≠ reproduction</span><span aria-hidden="true">Fixture ≠ benchmark</span><span aria-hidden="true">Local pass ≠ deployment</span><span aria-hidden="true">Trace before answer</span>
+      </div>
+    </div>
 
-      <div class="story-layout">
-        <aside class="story-spine" aria-hidden="true">
-          <svg viewBox="0 0 100 600" preserveAspectRatio="none">
-            <path class="spine-base" d="M55 0C18 102 83 188 49 286C20 369 78 455 42 600"/>
-            <path class="spine-progress" pathLength="1" d="M55 0C18 102 83 188 49 286C20 369 78 455 42 600"/>
-          </svg>
+    <section class="trajectory-zone">
+      <div class="wrap trajectory-shell">
+        <header class="trajectory-intro">
+          <div class="tech-label">One signal · four state changes</div>
+          <h2>Watch a claim earn its weight.</h2>
+          <p>Motion is not decoration here. Scroll changes the state of the same evidence trace while the written boundary stays readable.</p>
+        </header>
+
+        <aside class="trace-monitor" aria-label="Evidence trace monitor">
+          <div class="monitor-head"><span>NX/TRACE—01</span><span class="live">Live scroll state</span></div>
+          <div class="monitor-visual">
+            <div class="monitor-grid"></div>
+            <svg viewBox="0 0 420 520" preserveAspectRatio="none" aria-hidden="true">
+              <path class="trace-base" d="M48 30C332 50 50 171 351 198C65 229 355 338 78 386C237 405 185 466 371 492"/>
+              <path class="trace-progress" pathLength="1" d="M48 30C332 50 50 171 351 198C65 229 355 338 78 386C237 405 185 466 371 492"/>
+              <circle class="trace-halo" cx="48" cy="30" r="25"/><circle class="instrument-node" cx="48" cy="30" r="5"/>
+            </svg>
+            <div class="monitor-state"><strong id="state-number">01</strong><span id="state-label">Question bounded</span></div>
+          </div>
         </aside>
 
-        <div class="story-chapters">
-          <article class="chapter">
-            <div class="chapter-no">Chapter I</div>
-            <div><h2>Ask a bounded question.</h2><p>Start with a decision that evidence can actually change: a route contract, a sensitivity range, a provenance gap—not “solve satellite networks.”</p><a class="chapter-link" href="/research/">See the research map</a></div>
+        <div class="trajectory-copy">
+          <article class="trace-step" data-state="01" data-label="Question bounded">
+            <div class="step-meta"><span>State / Question</span><span>Scope lock</span></div>
+            <h3>Begin with a decision—not a universe.</h3>
+            <p>A route contract, an orbital-state sensitivity, or a provenance gap can be checked. “Solve satellite networks” cannot.</p>
+            <a href="/research/">Open the research map</a>
           </article>
-          <article class="chapter">
-            <div class="chapter-no">Chapter II</div>
-            <div><h2>Name the source.</h2><p>A paper, standard, public dataset, or generated fixture gets a role and an evidence tier. A linked repository remains an artifact route until it is inspected and executed.</p><a class="chapter-link" href="/papers/">Browse curated sources</a></div>
+          <article class="trace-step" data-state="02" data-label="Source classified">
+            <div class="step-meta"><span>State / Source</span><span>Tier assigned</span></div>
+            <h3>Give every source a role.</h3>
+            <p>A paper can report a mechanism. A repository can expose an artifact route. Neither becomes a Nimbus reproduction until inspected and executed.</p>
+            <a href="/papers/">Inspect curated sources</a>
           </article>
-          <article class="chapter">
-            <div class="chapter-no">Chapter III</div>
-            <div><h2>Run the smallest useful check.</h2><p>Deterministic validators, route-aware contracts, and bounded synthetic fixtures test one mechanism at a time. Trace evidence matters more than a polished final answer.</p><a class="chapter-link" href="/simulations/">Inspect the fixture case study</a></div>
+          <article class="trace-step" data-state="03" data-label="Check executed">
+            <div class="step-meta"><span>State / Local check</span><span>Trace captured</span></div>
+            <h3>Run the smallest check that can fail honestly.</h3>
+            <p>Deterministic validators and route-aware fixtures test one mechanism while preserving alternate routes, unsafe side effects, and no-safe-action cases.</p>
+            <a href="/simulations/">See the local fixture</a>
           </article>
-          <article class="chapter">
-            <div class="chapter-no">Chapter IV</div>
-            <div><h2>Keep the non-claim visible.</h2><p>Fixture integrity is not model performance. A paper report is not a Nimbus reproduction. A successful local run is not deployment authorization.</p><a class="chapter-link" href="/methods/">Read the release rules</a></div>
+          <article class="trace-step" data-state="04" data-label="Boundary retained">
+            <div class="step-meta"><span>State / Boundary</span><span>Non-claim visible</span></div>
+            <h3>End with what the result cannot authorize.</h3>
+            <p>Fixture integrity is not model performance. A local pass is not deployment evidence. The boundary ships with the finding.</p>
+            <a href="/methods/">Read the release rules</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="wrap section reveal">
-      <div class="kicker">Current focus</div>
-      <h2>Three lanes. One evidence standard.</h2>
-      <div class="grid">
-        <article class="card"><h3>LEO / NTN</h3><p>Orbit state, handover, service continuity, RF/optical links, and evidence-qualified operating envelopes.</p><a class="chapter-link" href="/research/">Open questions</a></article>
-        <article class="card"><h3>Agent evaluation</h3><p>Tool-use traces, persistent state, false-green prevention, executable verifiers, and report–action agreement.</p><a class="chapter-link" href="/simulations/">Local case study</a></article>
-        <article class="card"><h3>Agent × network operations</h3><p>Telecom-specific action gates where physical constraints and provenance remain outside the language model.</p><a class="chapter-link" href="/progress/">Research status</a></article>
+    <section class="lanes-zone">
+      <div class="wrap">
+        <header class="lanes-head"><div class="tech-label">Active research fields</div><h2>Three scales of the same problem.</h2></header>
+        <div class="lane-list">
+          <a class="lane-row" href="/papers/"><span class="lane-no">01</span><h3>LEO / NTN</h3><p>Orbital state, handover, RF/optical links, service continuity, and evidence-qualified operating envelopes.</p><span class="lane-arrow">↗</span></a>
+          <a class="lane-row" href="/simulations/"><span class="lane-no">02</span><h3>Agent evaluation</h3><p>Tool-use traces, persistent state, false-green prevention, executable verifiers, and report–action agreement.</p><span class="lane-arrow">↗</span></a>
+          <a class="lane-row" href="/progress/"><span class="lane-no">03</span><h3>Agent × network</h3><p>Telecom-specific action gates where physical constraints and provenance remain outside the language model.</p><span class="lane-arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="boundary-zone">
+      <div class="wrap boundary-layout">
+        <div><div class="tech-label">Publication boundary</div><h2>A pass is<br>not a <em>claim.</em></h2></div>
+        <div class="boundary-copy"><strong>Research can look cinematic without becoming theatre.</strong><p>Nimbus separates source reports, local checks, reproducible artifacts, and deployment evidence. Presentation may guide attention; it cannot raise the evidence tier.</p><div class="boundary-actions"><a class="btn primary" href="/progress/">Current progress</a><a class="btn" href="/about/">Identity & corrections</a></div></div>
       </div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <span>Nimbus · curated public research</span>
-    <span><a href="/about/">Identity, privacy, and corrections</a></span>
-  </footer>
-  <script src="/assets/site.js" defer></script>
+  <footer class="wrap footer"><span>Nimbus · Evidence Observatory</span><span>Public research · explicit boundaries</span></footer>
+  <script src="/assets/observatory.js" defer></script>
 </body>
 </html>
