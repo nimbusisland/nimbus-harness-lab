@@ -1,1 +1,125 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Public research notes, methods, and reproducible artifacts for LEO/NTN and agent evaluation."><meta name="theme-color" content="#08131c"><title>Nimbus · Nimbus</title><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"><meta property="og:type" content="website"><meta property="og:title" content="Nimbus · Nimbus"><meta property="og:description" content="Public research notes, methods, and reproducible artifacts for LEO/NTN and agent evaluation."><meta property="og:url" content="https://nimbus.mit-project.me/"><meta property="og:image" content="https://nimbus.mit-project.me/assets/og.png"><meta name="twitter:card" content="summary"></head><body><a class="skip" href="#content">Skip to content</a><nav class="nav"><div class="wrap nav-row"><a class="brand" href="/">Nimbus</a><div class="nav-links"><a href="/research/">Research</a><a href="/papers/">Papers</a><a href="/simulations/">Simulations</a><a href="/progress/">Progress</a><a href="/methods/">Methods</a><a href="/about/">About</a></div></div></nav><main id="content" class="wrap"><header class="hero"><div class="kicker">Public research site</div><h1>Research work,<br>not a product demo.</h1><p class="lead">Nimbus publishes bounded research notes and artifacts about LEO/NTN systems, agent evaluation, and safe network operations. Each public claim should say what was checked, what remains open, and where its limits are.</p></header><section class="grid"><article class="card"><h2>Current work</h2><p>Route-aware evaluation fixtures, evidence contracts for telecom agents, and bounded LEO/NTN sensitivity questions.</p><a class="btn primary" href="/progress/">Read current progress</a></article><article class="card"><h2>Read the evidence</h2><p>Sources are organised as papers, methods, and synthetic fixtures. A source link is not presented as a completed reproduction.</p><a class="btn" href="/papers/">Browse papers and sources</a></article><article class="card"><h2>Know the boundary</h2><p>The site does not publish private logs, credentials, raw chats, or live-control data. It does not offer a live agent endpoint.</p><a class="btn" href="/about/">Read the statement</a></article></section><section class="section"><h2>Start here</h2><div class="grid"><article class="card"><h3>Research</h3><p>A map of the three active research lanes and their current questions.</p><a href="/research/">Research overview</a></article><article class="card"><h3>Simulations</h3><p>A scoped account of the route-aware fixture, including what its checks do and do not show.</p><a href="/simulations/">Fixture case study</a></article><article class="card"><h3>Methods</h3><p>The evidence ladder and public-release rules used to keep claims narrow and inspectable.</p><a href="/methods/">Methods and policy</a></article></div></section></main><footer class="wrap footer">Nimbus · public research site · <a href="/about/">identity and publication policy</a></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Evidence-bound public research on LEO/NTN systems, agent evaluation, and safe network operations.">
+  <meta name="theme-color" content="#f2efe7">
+  <title>Nimbus · Public research</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nimbus · Public research">
+  <meta property="og:description" content="From research question to inspectable evidence—with the boundary kept visible.">
+  <meta property="og:url" content="https://nimbus.mit-project.me/">
+  <meta property="og:image" content="https://nimbus.mit-project.me/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="wrap nav-row">
+      <a class="brand" href="/">Nimbus</a>
+      <div class="nav-links">
+        <a href="/research/">Research</a>
+        <a href="/papers/">Papers</a>
+        <a href="/simulations/">Simulations</a>
+        <a href="/progress/">Progress</a>
+        <a href="/methods/">Methods</a>
+        <a href="/about/">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="content">
+    <header class="wrap home-hero">
+      <div class="hero-copy">
+        <div class="kicker">Public research · evidence first</div>
+        <h1>Follow the<br><em>signal.</em></h1>
+        <p class="lead">Nimbus studies LEO/NTN systems and agent evaluation. Every public result follows one visible path: question, source, local check, and an explicit boundary on what the evidence does not establish.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#evidence-path">Trace the method</a>
+          <a class="btn" href="/progress/">Current progress</a>
+        </div>
+      </div>
+
+      <div class="orbit-stage" aria-label="A signal traces an orbit from question to evidence">
+        <svg class="orbit-art" viewBox="0 0 520 540" role="img" aria-labelledby="orbit-title orbit-desc">
+          <title id="orbit-title">Evidence orbit</title>
+          <desc id="orbit-desc">A coral signal line connects question, source, check and boundary around a planet.</desc>
+          <path class="orbit-ghost" d="M38 310C90 100 387 32 487 222C559 360 389 526 178 470C61 439 5 377 38 310Z"/>
+          <path class="orbit-path" pathLength="1" d="M18 356C70 93 395 17 502 212C582 358 395 545 162 474C28 433-18 334 18 356Z"/>
+          <circle class="orbit-node" cx="50" cy="260" r="7"/>
+          <circle class="orbit-node" cx="183" cy="77" r="7"/>
+          <circle class="orbit-node" cx="467" cy="174" r="7"/>
+          <circle class="orbit-node" cx="379" cy="469" r="7"/>
+          <text class="orbit-label" x="15" y="241">Question</text>
+          <text class="orbit-label" x="151" y="55">Source</text>
+          <text class="orbit-label" x="434" y="151">Check</text>
+          <text class="orbit-label" x="346" y="499">Boundary</text>
+        </svg>
+        <span class="signal-dot" style="left:8%;top:46%" aria-hidden="true"></span>
+        <div class="signal-caption"><strong>One path, four states.</strong>Polish never outruns provenance.</div>
+      </div>
+    </header>
+
+    <section class="evidence-strip" aria-label="Current public research scope">
+      <div class="evidence-stat"><strong>3</strong><span>research lanes, separately scoped</span></div>
+      <div class="evidence-stat"><strong>100</strong><span>local route contracts checked—not a model benchmark</span></div>
+      <div class="evidence-stat"><strong>0</strong><span>deployment claims inferred from synthetic fixtures</span></div>
+    </section>
+
+    <section id="evidence-path" class="wrap story">
+      <header class="story-head reveal">
+        <div class="kicker">The evidence path</div>
+        <h2>A result is only as strong as the path beneath it.</h2>
+        <p class="lead">The same signal continues through four chapters. Each chapter adds evidence without silently changing its meaning.</p>
+      </header>
+
+      <div class="story-layout">
+        <aside class="story-spine" aria-hidden="true">
+          <svg viewBox="0 0 100 600" preserveAspectRatio="none">
+            <path class="spine-base" d="M55 0C18 102 83 188 49 286C20 369 78 455 42 600"/>
+            <path class="spine-progress" pathLength="1" d="M55 0C18 102 83 188 49 286C20 369 78 455 42 600"/>
+          </svg>
+        </aside>
+
+        <div class="story-chapters">
+          <article class="chapter">
+            <div class="chapter-no">Chapter I</div>
+            <div><h2>Ask a bounded question.</h2><p>Start with a decision that evidence can actually change: a route contract, a sensitivity range, a provenance gap—not “solve satellite networks.”</p><a class="chapter-link" href="/research/">See the research map</a></div>
+          </article>
+          <article class="chapter">
+            <div class="chapter-no">Chapter II</div>
+            <div><h2>Name the source.</h2><p>A paper, standard, public dataset, or generated fixture gets a role and an evidence tier. A linked repository remains an artifact route until it is inspected and executed.</p><a class="chapter-link" href="/papers/">Browse curated sources</a></div>
+          </article>
+          <article class="chapter">
+            <div class="chapter-no">Chapter III</div>
+            <div><h2>Run the smallest useful check.</h2><p>Deterministic validators, route-aware contracts, and bounded synthetic fixtures test one mechanism at a time. Trace evidence matters more than a polished final answer.</p><a class="chapter-link" href="/simulations/">Inspect the fixture case study</a></div>
+          </article>
+          <article class="chapter">
+            <div class="chapter-no">Chapter IV</div>
+            <div><h2>Keep the non-claim visible.</h2><p>Fixture integrity is not model performance. A paper report is not a Nimbus reproduction. A successful local run is not deployment authorization.</p><a class="chapter-link" href="/methods/">Read the release rules</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section reveal">
+      <div class="kicker">Current focus</div>
+      <h2>Three lanes. One evidence standard.</h2>
+      <div class="grid">
+        <article class="card"><h3>LEO / NTN</h3><p>Orbit state, handover, service continuity, RF/optical links, and evidence-qualified operating envelopes.</p><a class="chapter-link" href="/research/">Open questions</a></article>
+        <article class="card"><h3>Agent evaluation</h3><p>Tool-use traces, persistent state, false-green prevention, executable verifiers, and report–action agreement.</p><a class="chapter-link" href="/simulations/">Local case study</a></article>
+        <article class="card"><h3>Agent × network operations</h3><p>Telecom-specific action gates where physical constraints and provenance remain outside the language model.</p><a class="chapter-link" href="/progress/">Research status</a></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>Nimbus · curated public research</span>
+    <span><a href="/about/">Identity, privacy, and corrections</a></span>
+  </footer>
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
