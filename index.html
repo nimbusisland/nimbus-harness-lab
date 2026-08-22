@@ -75,6 +75,7 @@
           <p>Motion is not decoration here. Scroll changes the state of the same evidence trace while the written boundary stays readable.</p>
         </header>
 
+        <div class="trajectory-stage">
         <aside class="trace-monitor" aria-label="Evidence trace monitor">
           <div class="monitor-head"><span>NX/TRACE—01</span><span class="live">Live scroll state</span></div>
           <div class="monitor-visual">
@@ -82,7 +83,11 @@
             <svg viewBox="0 0 420 520" preserveAspectRatio="none" aria-hidden="true">
               <path class="trace-base" d="M48 30C332 50 50 171 351 198C65 229 355 338 78 386C237 405 185 466 371 492"/>
               <path class="trace-progress" pathLength="1" d="M48 30C332 50 50 171 351 198C65 229 355 338 78 386C237 405 185 466 371 492"/>
-              <circle class="trace-halo" cx="48" cy="30" r="25"/><circle class="instrument-node" cx="48" cy="30" r="5"/>
+              <circle class="trace-halo" cx="48" cy="30" r="25"/>
+              <circle class="trace-node trace-node-1" cx="48" cy="30" r="5"/>
+              <circle class="trace-node trace-node-2" cx="351" cy="198" r="5"/>
+              <circle class="trace-node trace-node-3" cx="78" cy="386" r="5"/>
+              <circle class="trace-node trace-node-4" cx="371" cy="492" r="5"/>
             </svg>
             <div class="monitor-state"><strong id="state-number">01</strong><span id="state-label">Question bounded</span></div>
           </div>
@@ -113,6 +118,12 @@
             <p>Fixture integrity is not model performance. A local pass is not deployment evidence. The boundary ships with the finding.</p>
             <a href="/methods/">Read the release rules</a>
           </article>
+          <div class="trace-complete" aria-label="Evidence trace complete">
+            <span>Trace complete / 04</span>
+            <strong>Four states retained.</strong>
+            <p>The boundary remains attached when the next research field enters view.</p>
+          </div>
+        </div>
         </div>
       </div>
     </section>

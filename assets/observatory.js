@@ -53,30 +53,50 @@
   }
 
   const steps = [...document.querySelectorAll('.trace-step')];
+  const completion = document.querySelector('.trace-complete');
+  const nodes = [...document.querySelectorAll('.trace-node')];
+  const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
+  const smooth = value => value * value * (3 - 2 * value);
 
   let ticking = false;
   const update = () => {
     document.body.classList.toggle('has-scrolled', scrollY > 18);
-    const focusY = innerHeight * .48;
-    const active = steps.reduce((nearest, step) => {
-      const rect = step.getBoundingClientRect();
-      const distance = Math.abs((rect.top + rect.height * .5) - focusY);
-      return !nearest || distance < nearest.distance ? { step, distance } : nearest;
-    }, null)?.step;
-    if (active) {
-      number.textContent = active.dataset.state;
-      label.textContent = active.dataset.label;
-    }
+
     if (orbit) {
       const hero = document.querySelector('.observatory-hero').getBoundingClientRect();
-      const progress = reduced ? 1 : Math.max(.08, Math.min(1, 1 - hero.bottom / (innerHeight * 1.1)));
+      const heroScroll = clamp(-hero.top / Math.max(1, hero.height * .55));
+      const progress = reduced ? 1 : .08 + smooth(heroScroll) * .92;
       orbit.style.strokeDashoffset = String(1 - progress);
     }
-    if (trace && zone) {
-      const rect = zone.getBoundingClientRect();
-      const range = rect.height - innerHeight * .58;
-      const progress = reduced ? 1 : Math.max(0, Math.min(1, (-rect.top + innerHeight * .25) / Math.max(1, range)));
-      trace.style.strokeDashoffset = String(1 - progress);
+
+    if (trace && zone && steps.length) {
+      const focusY = innerHeight * (innerWidth <= 900 ? .74 : .52);
+      const completionRect = completion?.getBoundingClientRect();
+      const isComplete = Boolean(completionRect && completionRect.top <= focusY);
+      let activeIndex = steps.findIndex(step => {
+        const rect = step.getBoundingClientRect();
+        return rect.top <= focusY && rect.bottom > focusY;
+      });
+      if (activeIndex < 0) {
+        activeIndex = steps[0].getBoundingClientRect().top > focusY ? 0 : steps.length - 1;
+      }
+
+      const active = steps[activeIndex];
+      const activeRect = active.getBoundingClientRect();
+      const localProgress = isComplete ? 1 : clamp((focusY - activeRect.top) / Math.max(1, activeRect.height));
+      const settledProgress = smooth(clamp(localProgress / .58));
+      const traceProgress = reduced || isComplete ? 1 : (activeIndex + settledProgress) / steps.length;
+      const state = active.dataset.state;
+
+      zone.dataset.traceState = state;
+      number.textContent = state;
+      label.textContent = active.dataset.label;
+      trace.style.strokeDashoffset = String(1 - traceProgress);
+      steps.forEach((step, index) => step.classList.toggle('is-active', index === activeIndex));
+      nodes.forEach((node, index) => {
+        node.classList.toggle('is-active', index === activeIndex);
+        node.classList.toggle('is-reached', index < activeIndex || (index === activeIndex && settledProgress >= .7));
+      });
     }
     ticking = false;
   };
