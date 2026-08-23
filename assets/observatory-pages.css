@@ -82,11 +82,16 @@
 .constellation-viz .field-orbit { fill:none; stroke:rgba(240,242,237,.13); }
 .constellation-viz .field-zone { fill:rgba(216,255,104,.04); stroke:rgba(216,255,104,.25); }
 
-/* Paper source spectrum */
-.spectrum { display:grid; align-content:center; gap:25px; height:100%; }
-.spectrum-row { display:grid; grid-template-columns:42px 1fr 58px; gap:12px; align-items:center; font:400 .59rem "IBM Plex Mono"; color:var(--fog); }
+/* Paper publication timeline */
+.spectrum { display:grid; align-content:center; gap:22px; height:100%; }
+.spectrum-row { display:grid; grid-template-columns:42px 1fr 72px; gap:12px; align-items:center; font:400 .59rem "IBM Plex Mono"; color:var(--fog); }
 .spectrum-line { position:relative; height:1px; background:rgba(240,242,237,.18); }
-.spectrum-line::after { content:""; position:absolute; top:-3px; left:var(--mark); width:7px; height:7px; border:1px solid var(--signal); border-radius:50%; background:var(--void); }
+.spectrum-line::after { content:""; position:absolute; top:-3px; left:var(--mark); width:7px; height:7px; border:1px solid var(--signal); border-radius:50%; background:var(--void); transform:translateX(-50%); }
+.spectrum-row b { color:var(--fog); font-weight:500; font-variant-numeric:tabular-nums; }
+.spectrum-axis { display:grid; grid-template-columns:auto 1fr auto; gap:10px; margin:5px 84px 0 54px; color:rgba(240,242,237,.38); font:400 .48rem "IBM Plex Mono"; letter-spacing:.06em; text-transform:uppercase; }
+.spectrum-axis span { white-space:nowrap; }
+.spectrum-axis span:nth-child(2) { text-align:center; }
+.spectrum-axis span:last-child { text-align:right; }
 
 /* Simulation gate */
 .gate-visual { display:grid; place-items:center; height:100%; }
