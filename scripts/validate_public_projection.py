@@ -97,6 +97,28 @@ def validate_static_site(root: Path) -> list[str]:
     return findings
 
 
+def validate_route_inventory(root: Path, policy: dict) -> list[str]:
+    findings: list[str] = []
+    routes = policy.get("required_public_routes", {})
+    try:
+        tree = ET.parse(root / "sitemap.xml")
+        locations = {
+            node.text.strip()
+            for node in tree.getroot().iter()
+            if node.tag.endswith("loc") and node.text
+        }
+    except Exception as exc:
+        return [f"sitemap.xml:route-inventory-unreadable:{exc}"]
+    base = "https://nimbus.mit-project.me"
+    for route, rel in routes.items():
+        if not (root / rel).is_file():
+            findings.append(f"{rel}:required-route-file-missing:{route}")
+        expected = f"{base}{route}"
+        if expected not in locations:
+            findings.append(f"sitemap.xml:required-route-missing:{route}")
+    return sorted(findings)
+
+
 def changed_paths(root: Path) -> list[str]:
     commands = [
         ["git", "diff", "HEAD", "--name-only", "--diff-filter=ACMRD"],
@@ -128,6 +150,7 @@ def main() -> int:
     findings = find_path_violations(paths, policy) if paths else []
     findings += validate_content_classes(root, policy)
     findings += validate_static_site(root)
+    findings += validate_route_inventory(root, policy)
     scan_paths = [root / p for p in paths if (root / p).is_file()] if paths else list(root.glob("**/*.html"))
     for path in scan_paths:
         if ".git" in path.parts:
@@ -144,7 +167,7 @@ def main() -> int:
         "changed_paths": paths,
         "findings": findings,
         "valid": not findings,
-        "publish_allowed": policy.get("mode") == "live" and not findings,
+        "publish_allowed": policy.get("mode") in {"live", "gated-live"} and not findings,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if not findings else 2

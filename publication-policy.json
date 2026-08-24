@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "mode": "dry-run",
+  "mode": "gated-live",
   "curator_allow": [
     "index.html",
     "research/**",
@@ -10,6 +10,7 @@
     "methods/**",
     "about/**",
     "changelog/**",
+    "harness/**",
     "assets/*.css",
     "assets/*.js",
     "sitemap.xml",
@@ -31,8 +32,20 @@
     "BEGIN OPENSSH PRIVATE KEY",
     "private journal",
     "raw chat",
-    "raw mail"
+    "raw mail",
+    "https://github.com/nimbusisland/nimbus-leo-benchmark-reports"
   ],
+  "required_public_routes": {
+    "/": "index.html",
+    "/research/": "research/index.html",
+    "/papers/": "papers/index.html",
+    "/simulations/": "simulations/index.html",
+    "/progress/": "progress/index.html",
+    "/methods/": "methods/index.html",
+    "/about/": "about/index.html",
+    "/changelog/": "changelog/index.html",
+    "/harness/": "harness/index.html"
+  },
   "content_classes": {
     "activity": [
       "research/index.html",

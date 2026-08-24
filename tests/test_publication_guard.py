@@ -57,6 +57,17 @@ class PublicationGuardTests(unittest.TestCase):
         findings = self.validator.validate_static_site(ROOT)
         self.assertEqual([], findings)
 
+    def test_sitemap_covers_every_declared_public_research_route(self):
+        self.assertEqual([], self.validator.validate_route_inventory(ROOT, self.policy))
+
+    def test_legacy_benchmark_repo_is_not_presented_as_active_evidence(self):
+        old = "https://github.com/nimbusisland/nimbus-leo-benchmark-reports"
+        matches = []
+        for path in ROOT.glob("**/*.html"):
+            if old in path.read_text(encoding="utf-8"):
+                matches.append(path.relative_to(ROOT).as_posix())
+        self.assertEqual([], matches)
+
 
 if __name__ == "__main__":
     unittest.main()
