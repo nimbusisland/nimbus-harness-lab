@@ -68,6 +68,15 @@ class PublicationGuardTests(unittest.TestCase):
                 matches.append(path.relative_to(ROOT).as_posix())
         self.assertEqual([], matches)
 
+    def test_harness_links_public_method_artifacts(self):
+        text = (ROOT / "harness/index.html").read_text(encoding="utf-8")
+        for rel in (
+            "docs/trace-schema.md",
+            "docs/harness-taxonomy.md",
+            "checklists/publishing-preflight.md",
+        ):
+            self.assertIn(f"https://github.com/nimbusisland/nimbus-harness-lab/blob/main/{rel}", text)
+
 
 if __name__ == "__main__":
     unittest.main()
