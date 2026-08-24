@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "mode": "dry-run",
+  "curator_allow": [
+    "index.html",
+    "research/**",
+    "papers/**",
+    "simulations/**",
+    "progress/**",
+    "methods/**",
+    "about/**",
+    "changelog/**",
+    "assets/*.css",
+    "assets/*.js",
+    "sitemap.xml",
+    "robots.txt",
+    "404.html"
+  ],
+  "curator_forbid": [
+    ".git/**",
+    ".github/**",
+    "CNAME",
+    "SECURITY.md",
+    ".nojekyll"
+  ],
+  "forbidden_text": [
+    "/home/hermes",
+    "nimbus-research-log",
+    "api_key",
+    "authorization: bearer",
+    "BEGIN OPENSSH PRIVATE KEY",
+    "private journal",
+    "raw chat",
+    "raw mail"
+  ],
+  "content_classes": {
+    "activity": [
+      "research/index.html",
+      "progress/index.html"
+    ],
+    "source-note": [
+      "papers/index.html"
+    ],
+    "validity-claim": {
+      "simulations/index.html": "HOLD"
+    }
+  }
+}
